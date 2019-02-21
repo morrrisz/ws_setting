@@ -1,0 +1,63 @@
+################################################################################
+#
+#  Please put your personal setting at this segment
+#
+################################################################################
+
+####  DISPLAY setting  ---------------------------------------------------------
+#setenv DISPLAY PCIP:0.0    # Change DISPLAY to your Terminal
+if ( ${?DISPLAY} ) then
+  if ( $DISPLAY =~ :* ) then
+          setenv DISPLAY `hostname`$DISPLAY
+  endif
+  echo $DISPLAY > ~/.DISPLAY
+else
+  setenv DISPLAY `cat ~/.DISPLAY`
+endif
+
+####  Other setting  -----------------------------------------------------------
+setenv CHINESE_NAME   ·¨´ºµ¾  # For Logo.ps (Composer/Opus Drawing Name)
+setenv EDITOR "xterm -e vi"
+
+##set prompt = "`hostname` `pwd` > "
+##alias cd  'cd \!*; set prompt = "`hostname` `pwd` > " '
+##if ( `pwd` =~ /home/xua002/sch/user/morrris* ) then
+##  set prompt = "~sch002 >"
+##else
+  set prompt = "%{^[[1;31m%}%W%D %T %{^[[0;33m%}%n%{^[[m%}@%{^[[36m%}%m:%~%{^[[m%} >%{^[[m%}"
+##endif
+
+set history=40
+set savehist=40
+set ignoreeof
+set time=100
+set mail = ( 60  /usr/spool/mail/`whoami` /etc/motd )
+umask 022
+set nobeep
+set filec
+set autolist set color set colorcat
+
+####  Printer setting  ---------------------------------------------------------
+setenv TCAT "lpr"
+setenv PRINTER rdp6
+setenv LPDEST rdp6
+
+####  MAN Setting    -----------------------------------------------------------
+setenv LESS_TERMCAP_md `bash -c 'echo -en "\e[34m"'`
+setenv LESS_TERMCAP_me `bash -c 'echo -en "\e[0m"'`
+setenv LESS_TERMCAP_se `bash -c 'echo -en "\e[0m"'`
+setenv LESS_TERMCAP_so `bash -c 'echo -en "\e[01;33;44m"'`
+setenv LESS_TERMCAP_ue `bash -c 'echo -en "\e[0m"'`
+setenv LESS_TERMCAP_us `bash -c 'echo -en "\e[32m"'`
+
+####  Alias Setting    ---------------------------------------------------------
+source /home/morrris/.aliastab
+
+####  mm Setting        --------------------------------------------------------
+if ( -e /home/morrris/.cshrc_xm ) then  # Setting up Personal environment
+	source /home/morrris/.cshrc_xm 
+else
+  echo "\e[31mError:\e[0m Cannot find /home/morrris/.cshrc_xm"
+endif
+
+set path = ( /eda/clib/Faraday/ftclib/ftclib/flexlm/bin/linux/lmstat $path )

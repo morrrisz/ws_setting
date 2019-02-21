@@ -1,0 +1,6 @@
+
+cdsLibManager.main	showCategoriesOn	boolean	t
+
+asimenv.startup	simulator	string	"hspiceD"
+asimenv.startup	projectDir	string	"./netlist"
+

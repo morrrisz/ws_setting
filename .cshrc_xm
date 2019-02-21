@@ -1,0 +1,71 @@
+##############################
+###  MM Setting 
+##############################
+
+set path = ( /home/cad/bin /home/cad/bin/perl \
+	           /home/cad/from_ip/faraday/fst0w/memlib/flexlm/bin/linux \
+             /home/cad/process/umc_80nm_ehv_1.2v_6v_32v/MEMORY/FST0W_B_SH_Memaker_201701.1.3 \
+	           /home/mmlib/bin /home/mmlib/bin/perl \
+             /home/morrris/bin /home/morrris/bin/perl_tk /home/morrris/bin/perl \
+             /eda/clib/Faraday/ftclib/ftclib/flexlm/bin/linux/lmstat $path )
+
+setenv SUNPLUS_LICENSE_FILE 2900@vm3lic3
+setenv sch001 /home/xua001/sch/user/$user
+setenv sch002 /home/xua002/sch/user/$user
+setenv sch003 /home/xu3003/FROM_TW/sch/user/$user
+setenv sch006 /home/xua006/FROM_TW/sch/user/$user
+setenv sch007 /home/xua007/FROM_TW/sch/user/$user
+setenv rtl001 /home/mmtmp/$user/xua001/apr
+setenv rtl002 /home/xua002/rtl/user/$user/apr
+setenv rtl003 /home/xu3003/FROM_TW/rtl/user/$user/apr
+setenv rtl006 /home/xua006/FROM_TW/rtl/user/$user/apr
+setenv rtl007 /home/xua007/FROM_TW/rtl/user/$user/apr
+setenv svn001 file:///home/mmtmp/svn_xua001
+setenv svn002 file:///home/mmsvn/xua002
+setenv svn003 file:///home/mmsvn/xu3003
+setenv svn006 file:///home/mmsvn/xua006
+setenv svn007 file:///home/mmsvn/xua007
+
+###  EDA Tools     -----------
+#source /home/cad/bin/edatab
+#echo "Message: use command (edatab) to show eda_table \n"
+#if ( $HOSTNAME =~ mi* ) then
+#  source /home/cad/from_ip/faraday/fst0w/memlib/memaker.env
+#else
+#  echo "\e[31mError\e[0m: please login to mi1/mi2/mi3/mi4 so that you could run eda tools. \n"
+#endif
+
+###  Alias     ---------------
+alias ic616 "virtuoso -version IC0616"
+alias ic617 "virtuoso -version IC617_BASE"
+alias wv "wv -version M-2017.03-SP2"
+alias nWave "nWave -version 201712-SP2"
+##alias laker3oa "laker3oa -version oa2015.06"
+
+if ( -e /usr/bin/vimx ) then
+  alias vim "/usr/bin/vimx"
+  alias vi "/usr/bin/vimx"
+  #  echo "Message: vim is aliased to vimx"
+else
+  echo "\e[31mWarning:\e[0m Path /usr/bin/vimx NOT exist"
+endif
+
+alias 001 "cd /home/xua001"
+alias 002 "cd /home/xua002"
+alias 003 "cd /home/xu3003"
+alias 006 "cd /home/xua006"
+alias 007 "cd /home/xua007"
+alias sch001 "cd /home/xua001/sch/user/$user"
+alias sch002 "cd /home/xua002/sch/user/$user"
+alias sch003 "cd /home/xu3003/FROM_TW/sch/user/$user"
+alias sch006 "cd /home/xua006/FROM_TW/sch/user/$user"
+alias sch007 "cd /home/xua007/FROM_TW/sch/user/$user"
+alias rtl001 "cd /home/xua001/rtl/user/$user"
+alias rtl002 "cd /home/xua002/rtl/user/$user"
+alias rtl003 "cd /home/xu3003/FROM_TW/rtl/user/$user"
+alias rtl006 "cd /home/xua006/FROM_TW/rtl/user/$user"
+alias rtl007 "cd /home/xua007/FROM_TW/rtl/user/$user"
+alias rve 'calibre -version 2016.4_38.25_oa -rve &'
+#echo "Message: 001 is aliased to (cd /home/xua001)"
+#echo "Message: sch001 is aliased to (cd /home/xua001/sch/user/$user)"
+#echo "Message: rtl001 is aliased to (cd /home/xua001/rtl/user/$user) \n"
